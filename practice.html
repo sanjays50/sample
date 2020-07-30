@@ -1,0 +1,73 @@
+<html>
+<head><title>score</title>
+    <style>
+        .ma{
+            display: none;
+            text-align: center;
+            width: 250PX;
+            height: 250PX;
+            line-height: 120PX;
+            color: red;
+            background-color: dodgerblue;
+        }
+        
+        .se{
+            color:blueviolet;
+            
+        }
+        .don{
+            text-decoration: line-through;
+            opacity: 0.3;
+        }
+    
+    </style></head>
+    <body>
+        <h1> <span>0</span> to <span id="kk">0</span></h1>
+        <br>
+        <p>playong to:<span id="jj">5</span></p>
+        <input type="number">
+        <button id="p1" style="border-radius: 5px">p1</button>
+        <button id="p2" style="border-radius: 5px">p2</button>
+        <button id="rst" style="border-radius: 5px">rst</button>
+        <div class="ma"> GAME OVER <BR> PLZ RESTART.</div></div>
+        <ul>
+        <li>Karan1</li>
+        <li>Karan2</li>
+        <li>Karan3</li>
+        <li>Karan4</li>
+        <li>Karan5</li>
+        </ul>
+    </body>
+    <script>
+        var p1 = document.querySelector("#p1");
+var p2 = document.querySelector("#p2");
+var rst = document.querySelector("#rst");
+var ps = 0;
+var ps2 = 0;
+var gov = false;
+var ipt = document.querySelector("input");
+var sp = document.querySelector("#jj");
+var wg = Number(sp.textContent);
+var p1b =document.querySelectorAll("span")[0];
+var kk= document.querySelector("#kk");
+var lo = document.querySelector("div");
+        
+        
+var reser = function(){ps=p1b.textContent=0;p1b.style.color="black"; ps2=kk.textContent=0;
+                       kk.style.color="black"; lo.style.display="none"; gov=false;}
+
+
+p1.addEventListener("click",function(){ if(!gov){ ps++; if(wg === ps){gov = true; p1b.style.color="red"; lo.style.display="block" ;} p1b.textContent=ps;}})
+
+        p2.addEventListener("click",function(){ if(!gov){ ps2++; if(wg === ps2){gov = true; kk.style.color="red"; lo.style.display="block" ; } kk.textContent=ps2;}})
+rst.addEventListener("click",reser)
+ipt.addEventListener("click",function(){ if(ipt.value<1){ipt.value=5;}sp.textContent = ipt.value; wg=Number(ipt.value); reser();})
+
+var lis = document.querySelectorAll("li");
+        for(var i=0;i<lis.length;i++)
+            {
+                lis[i].addEventListener("mouseover",function(){this.classList.add("se");})
+                lis[i].addEventListener("click",function(){this.classList.toggle("don")})
+            }
+        </script>
+</html>
